@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,4 +13,195 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.Tabs {
+  background-color: #232528;
+  width: 100vw;
+  margin-top: -5%;
+}
+.TabPanel {
+  background-color: #383c41;
+  width: 100vw;
+  margin-bottom: -5%;
+}
+.WeatherHeader {
+  background-image: url(/public/Header.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -2%;
+  /* margin-top: -1.9%; */
+}
+.HeaderBox {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  width: max-content;
+  border: 1px solid white;
+
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+.country {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-weight: 1000;
+  font-size: 60px;
+  text-shadow: #000000 1px 1px 6px;
+}
+.id {
+  color: #4c668c;
+  font-family: Verdana, sans-serif;
+  margin-top: -30px;
+  font-size: 20px;
+}
+.lat {
+  color: #4c668c;
+  font-family: Verdana, sans-serif;
+  margin-top: -20px;
+}
+.time {
+  color: #4c668c;
+  font-family: Verdana, sans-serif;
+  margin-top: -10px;
+  font-weight: 800;
+}
+.condition {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  text-shadow: #000000 1px 1px 6px;
+}
+.temp {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 60px;
+  margin-top: -15px;
+}
+.feel {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 30px;
+  margin-top: -30px;
+}
+.inputBox {
+  display: flex;
+  justify-content: center;
+  background-color: #49b7ac;
+  width: 100vw;
+  margin-left: -2%;
+  margin-top: -2%;
+  padding-top: 20px;
+}
+.inputStyle {
+  padding: 5px;
+  font-size: 17px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 0px;
+  box-shadow: 0px 0px 11px rgba(51, 93, 164, 0.34);
+  text-shadow: 0px 0px 6px rgba(89, 162, 255, 0);
+}
+.searchButton {
+  border: none;
+  background-color: #4c668c;
+  color: white;
+  transition: 0.3s;
+}
+.searchButton:hover {
+  border: none;
+  background-color: #383654;
+  transition: 0.3s;
+}
+.tabsFront {
+  background-color: #232528;
+  width: 100vw;
+}
+/* Forecast Styling here:  */
+
+.sun {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-image: url(/public/sunrise.png);
+  border: 1px white solid;
+  text-align: center;
+  color: white;
+  text-shadow: #000000 1px 1px 1px;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+}
+.sunset {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-image: url(/public/sunset.png);
+  border: 1px white solid;
+  color: white;
+  text-shadow: #000000 1px 1px 1px;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+.moonrise {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-image: url(/public/moonrise.png);
+  border: 1px white solid;
+  color: white;
+  text-shadow: #000000 1px 1px 1px;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+.forecastBox {
+  background-image: url(/public/Forecast.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  margin: -5% -5%;
+  margin-bottom: 5%;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  color: white;
+  text-shadow: #000000 1px 1px 6px;
+  font-family: "Rubik", sans-serif;
+}
+.ForecastDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 140px;
+  border: 1px solid white;
+  height: 490px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+.maxTemp {
+  font-size: 15px;
+}
+.TempFore {
+  font-size: 35px;
 }

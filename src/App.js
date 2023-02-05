@@ -1,11 +1,10 @@
 import './App.css';
 import { HeaderApi } from './Components/HeaderApi';
-import { WeatherHeader } from './Components/WeatherHeader';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div>
-      {/* <WeatherHeader/> */}
+    <div >
       <HeaderApi/>
     </div>
   );
