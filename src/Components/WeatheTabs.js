@@ -180,4 +180,4 @@ export const WeatherTabs = ({ weatherData }) => {
   );
 };
 
-// style={{marginLeft:"125%", width:"100px", marginTop:"-12%"}}
+

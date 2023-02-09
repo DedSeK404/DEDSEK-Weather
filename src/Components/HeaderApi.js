@@ -7,10 +7,14 @@ import { WeatherTabs } from "./WeatheTabs";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
+import { Astro } from "./Horoscope";
 
 export const HeaderApi = () => {
   const [header, setHeader] = useState(false);
   const [forecast, setForecast] = useState(false);
+  const [horoscope, setHoroscope] = useState(false);
+
+  const [show, setShow] = useState(true);
 
   const [value, setValue] = useState(0);
 
@@ -44,6 +48,7 @@ export const HeaderApi = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setShow(true)
   };
 
   const handleClickCurrent = (event) => {
@@ -51,6 +56,11 @@ export const HeaderApi = () => {
   };
   const handleClickForecast = (event) => {
     setForecast(value);
+    setShow(true)
+  };
+  const handleClickHoroscope = (event) => {
+    setHoroscope(value);
+    setShow(false)
   };
   const [style, setStyle] = useState("");
   const handleClickStyle = () => {
@@ -66,15 +76,19 @@ export const HeaderApi = () => {
           <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
             <TabList className="tabsFront" onChange={handleChange} center>
               <Tab
-                style={{ marginLeft: "15%", color: "white" }}
+                style={{ marginLeft: "10%", color: "white" }}
                 label="Current Weather"
                 onClick={handleClickCurrent}
               />
               <Tab
-                style={{ marginLeft: "45%", color: "white" }}
+                style={{ marginLeft: "20%", color: "white" }}
                 label="Forecast"
                 onClick={handleClickForecast}
               />
+              <Tab
+              style={{ marginLeft: "20%", color: "white" }}
+              label="Horoscope"
+              onClick={handleClickHoroscope}/>
             </TabList>
             <AnimatePresence>
               <TabPanel value={0} label="tab1">
@@ -131,6 +145,25 @@ export const HeaderApi = () => {
                   )}
                 </motion.div>
               </TabPanel>
+              <TabPanel value={2} label="tab3">
+                <motion.div
+                  style={child}
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {loading ? (
+                    <img
+                      style={{ marginLeft: "60%" }}
+                      src="/Data.png"
+                      alt="GETTING DATA"
+                    />
+                  ) : (
+                    <Astro/>
+                  )}
+                </motion.div>
+              </TabPanel>
             </AnimatePresence>
           </Box>
         </TabContext>
@@ -144,7 +177,7 @@ export const HeaderApi = () => {
             alt="GETTING DATA"
           />
         ) : (
-          <WeatherTabs weatherData={weatherData} />
+         show ? <WeatherTabs weatherData={weatherData}  /> : ""
         )}
       </div>
     </div>
