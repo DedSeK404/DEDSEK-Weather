@@ -139,36 +139,36 @@ export const Astro = () => {
          <div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p">Current Date:</p>
-          <p>{astro.current_date}</p>{" "}
+          <p style={{color:"white"}}>{astro.current_date}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p">Compatibility:</p>
-          <p>{astro.compatibility}</p>{" "}
+          <p style={{color:"white"}}>{astro.compatibility}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p">Lucky Number:</p>
-          <p>{astro.lucky_number}</p>{" "}
+          <p style={{color:"white"}}>{astro.lucky_number}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p">Lucky Time:</p>
-          <p>{astro.lucky_time}</p>{" "}
+          <p style={{color:"white"}}>{astro.lucky_time}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           {" "}
           <p className="a_p">Color:</p>
-          <p>{astro.color}</p>
+          <p style={{color:"white"}}>{astro.color}</p>
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p"> Date Range:</p>
-          <p>{astro.date_range}</p>{" "}
+          <p style={{color:"white"}}>{astro.date_range}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p"> Mood:</p>
-          <p>{astro.mood}</p>{" "}
+          <p style={{color:"white"}}>{astro.mood}</p>{" "}
         </div>
         <div style={{ display: "flex", gap: "10px", alignItems:"center" }}>
           <p className="a_p"> Description:</p>
-          <p>{astro.description}</p>
+          <p style={{color:"white"}}>{astro.description}</p>
         </div>
       </div>
       </>}
