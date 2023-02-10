@@ -1,45 +1,34 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Forecast } from "./Forecast";
-import { WeatherHeader } from "./WeatherHeader";
 import { motion, AnimatePresence } from "framer-motion";
-import { WeatherTabs } from "./WeatheTabs";
+import { WeatherTabs } from "./WeatherTabs";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 import { Astro } from "./Horoscope";
+import { useDispatch, useSelector } from "react-redux";
+import { getcurrentdata } from "../JS/Actions/actions";
+import { CurrentWeather } from "./CurrentWeather";
 
-export const HeaderApi = () => {
+export const MainPage = () => {
+  const dispatch = useDispatch();
+  const weatherInfo = useSelector((state) => state.current.currentweather);
+  const loading = useSelector((state) => state.current.loading);
   const [header, setHeader] = useState(false);
   const [forecast, setForecast] = useState(false);
   const [horoscope, setHoroscope] = useState(false);
-
   const [show, setShow] = useState(true);
-
   const [value, setValue] = useState(0);
+  const [search, setSearch] = useState("");
+  const [submit, setSubmit] = useState("Tunisia");
+  const [style, setStyle] = useState("");
 
   const child = { width: `30em`, height: `100%` };
   const parent = { width: `60em`, height: `100%` };
-  const [weatherData, setWeatherData] = useState([]);
-  const [search, setSearch] = useState("");
-  const [submit, setSubmit] = useState("Tunisia");
-  const [loading, setloading] = useState(true);
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await axios.get(
-          `http://api.weatherapi.com/v1/current.json?key=17a973d87cd74c8cadb124905230402&q=${submit}&aqi=no`
-        );
-        setWeatherData(res.data);
-
-        setloading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [submit]);
+    dispatch(getcurrentdata(submit));
+  }, [submit, dispatch]);
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmit(search);
@@ -48,27 +37,28 @@ export const HeaderApi = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    setShow(true)
+    setShow(true);
   };
 
   const handleClickCurrent = (event) => {
     setHeader(value);
   };
+
   const handleClickForecast = (event) => {
     setForecast(value);
-    setShow(true)
+    setShow(true);
   };
+
   const handleClickHoroscope = (event) => {
     setHoroscope(value);
-    setShow(false)
+    setShow(false);
   };
-  const [style, setStyle] = useState("");
+
   const handleClickStyle = () => {
     setStyle({ opacity: "1", animation: "fade 1s linear" });
     setTimeout(() => setStyle(""), 700);
   };
 
-  //console.log(weatherData);
   return (
     <div>
       <Box>
@@ -86,9 +76,10 @@ export const HeaderApi = () => {
                 onClick={handleClickForecast}
               />
               <Tab
-              style={{ marginLeft: "20%", color: "white" }}
-              label="Horoscope"
-              onClick={handleClickHoroscope}/>
+                style={{ marginLeft: "20%", color: "white" }}
+                label="Horoscope"
+                onClick={handleClickHoroscope}
+              />
             </TabList>
             <AnimatePresence>
               <TabPanel value={0} label="tab1">
@@ -120,7 +111,7 @@ export const HeaderApi = () => {
                       alt="GETTING DATA"
                     />
                   ) : (
-                    <WeatherHeader Data={weatherData} />
+                    <CurrentWeather Data={weatherInfo} />
                   )}
                 </motion.div>
               </TabPanel>
@@ -160,7 +151,7 @@ export const HeaderApi = () => {
                       alt="GETTING DATA"
                     />
                   ) : (
-                    <Astro/>
+                    <Astro />
                   )}
                 </motion.div>
               </TabPanel>
@@ -176,8 +167,10 @@ export const HeaderApi = () => {
             src="/Data.png"
             alt="GETTING DATA"
           />
+        ) : show ? (
+          <WeatherTabs weatherData={weatherInfo} />
         ) : (
-         show ? <WeatherTabs weatherData={weatherData}  /> : ""
+          ""
         )}
       </div>
     </div>

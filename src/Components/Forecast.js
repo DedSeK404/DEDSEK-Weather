@@ -1,24 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getforecastdata } from "../JS/Actions/ForecastActions";
 
 export const Forecast = ({ submit }) => {
-  const [forecastData, setForecastData] = useState([]);
-  const [loading, setloading] = useState(true);
+  const dispatch = useDispatch();
+
+  const forecastData = useSelector((state) => state.forecast.forecastdata);
+  const loading = useSelector((state) => state.forecast.loadingforecast);
+
   useEffect(() => {
-    const getForecastData = async () => {
-      try {
-        const res = await axios.get(
-          `http://api.weatherapi.com/v1/forecast.json?key=17a973d87cd74c8cadb124905230402&q=${submit}&days=4&aqi=no&alerts=no`
-        );
-        setForecastData(res.data);
-        setloading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getForecastData();
-  }, [submit]);
-  console.log(forecastData);
+    dispatch(getforecastdata(submit));
+  }, [submit, dispatch]);
+
   return (
     <div className="forecastBox">
       {" "}

@@ -1,4 +1,4 @@
-export const WeatherHeader = ({ Data }) => {
+export const CurrentWeather = ({ Data }) => {
   return (
     <div className="WeatherHeader">
       <br></br>
