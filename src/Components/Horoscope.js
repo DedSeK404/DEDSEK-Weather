@@ -7,30 +7,28 @@ export const Astro = () => {
   const [select, setSelect] = useState("aries");
   const [astro, setAstro] = useState("");
   useEffect(() => {
-    // const fetchSign = async () => {
-    //     try {
-    //         const URL ="https://aztro.sameerkumar.website/?sign=scorpio&day=today"
-    //         const res = await axios.get(URL, {
-    //             method: 'POST'
-    //         })
+    const fetchSign = async () => {
+        try {
+            const URL =`https://aztro.sameerkumar.website/?sign=${select}&day=today`
+            const res = await axios.post(URL)
 
-    //         setAstro(res.json());
+            setAstro(res.data);
 
-    //       } catch (error) {
-    //         console.log(error);
-    //       }
-    //       fetchSign()
+          } catch (error) {
+            console.log(error);
+          }
+         
 
-    // }
-
-    const URL = `https://aztro.sameerkumar.website/?sign=${select}&day=today`;
-    fetch(URL, {
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        setAstro(response);
-      });
+    }
+    fetchSign()
+    // const URL = `https://aztro.sameerkumar.website/?sign=${select}&day=today`;
+    // fetch(URL, {
+    //   method: "POST",
+    // })
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     setAstro(response);
+    //   });
   }, [select]);
   const handleClick = (e) => {
     setSelect(e.target.value);
