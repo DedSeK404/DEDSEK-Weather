@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 import { Astro } from "./Horoscope";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const HeaderApi = () => {
   const [show, setShow] = useState(true);
@@ -125,11 +126,11 @@ export const HeaderApi = () => {
                   transition={{ duration: 0.4 }}
                 >
                   {loading ? (
-                    <img
-                      style={{ marginLeft: "60%" }}
-                      src="/Data.png"
-                      alt="GETTING DATA"
-                    />
+                    <div className="spinner">
+                     <Spinner style={{margin:"auto"}} animation="border" role="status">
+                     <span className="visually-hidden">Loading...</span>
+                   </Spinner>
+                   </div>
                   ) : (
                     <Forecast submit={submit} />
                   )}

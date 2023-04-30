@@ -20,6 +20,14 @@
   margin-left: -2%;
   /* margin-top: -1.9%; */
 }
+
+.spinner {
+  background-image: url(/public/Header.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
 .HeaderBox {
   display: flex;
   flex-direction: column;

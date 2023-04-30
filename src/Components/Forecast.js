@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 
 export const Forecast = ({ submit }) => {
   const [forecastData, setForecastData] = useState([]);
@@ -18,14 +19,26 @@ export const Forecast = ({ submit }) => {
     };
     getForecastData();
   }, [submit]);
- 
+
   return (
-    <div className="forecastBox" >
+    <div className="forecastBox">
       {" "}
       {loading ? (
-        <img style={{ marginLeft: "60%" }} src="/Data.png" alt="GETTING DATA" />
+        <div className="spinner">
+          <Spinner style={{ margin: "auto" }} animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : (
-        <div style={{ display: "flex", gap: "5%",width:"100vw",height:"100vh",justifyContent:"space-around" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "5%",
+            width: "100vw",
+            height: "100vh",
+            justifyContent: "space-around",
+          }}
+        >
           {/* 1st day Forecast  */}
           <section>
             <div className="ForecastDay">
@@ -195,61 +208,67 @@ export const Forecast = ({ submit }) => {
             </main>
           </section>
           {/* 4th day Forecast  */}
-          {forecastData.forecast.forecastday[3]?<section>
-            <div className="ForecastDay">
-              <p>{forecastData && forecastData.forecast.forecastday[3].date}</p>
-              <p>
-                {forecastData &&
-                  forecastData.forecast.forecastday[3].day.condition.text}
-              </p>
-              <img
-                src={
-                  forecastData &&
-                  forecastData.forecast.forecastday[3].day.condition.icon
-                }
-                alt="WEATHER ICON"
-              />
+          {forecastData.forecast.forecastday[3] ? (
+            <section>
+              <div className="ForecastDay">
+                <p>
+                  {forecastData && forecastData.forecast.forecastday[3].date}
+                </p>
+                <p>
+                  {forecastData &&
+                    forecastData.forecast.forecastday[3].day.condition.text}
+                </p>
+                <img
+                  src={
+                    forecastData &&
+                    forecastData.forecast.forecastday[3].day.condition.icon
+                  }
+                  alt="WEATHER ICON"
+                />
 
-              <p className="maxTemp">Max Temp:</p>
-              <p className="TempFore">
-                {forecastData &&
-                  forecastData.forecast.forecastday[3].day.maxtemp_c}
-                °
-              </p>
+                <p className="maxTemp">Max Temp:</p>
+                <p className="TempFore">
+                  {forecastData &&
+                    forecastData.forecast.forecastday[3].day.maxtemp_c}
+                  °
+                </p>
 
-              <p>Min Temp:</p>
-              <p className="TempFore">
-                {forecastData &&
-                  forecastData.forecast.forecastday[3].day.mintemp_c}
-                °
-              </p>
-            </div>
-            <main>
-              <div>
-                <div className="sun">
-                  <p>Sunrise :</p>
-                  <p>
-                    {forecastData &&
-                      forecastData.forecast.forecastday[3].astro.sunrise}
-                  </p>
-                </div>
-                <div className="sunset">
-                  <p>Sunset :</p>
-                  <p>
-                    {forecastData &&
-                      forecastData.forecast.forecastday[3].astro.sunset}
-                  </p>
-                </div>
-                <div className="moonrise">
-                  <p>Moonrise :</p>
-                  <p>
-                    {forecastData &&
-                      forecastData.forecast.forecastday[3].astro.moonrise}
-                  </p>
-                </div>
+                <p>Min Temp:</p>
+                <p className="TempFore">
+                  {forecastData &&
+                    forecastData.forecast.forecastday[3].day.mintemp_c}
+                  °
+                </p>
               </div>
-            </main>
-          </section>:""}
+              <main>
+                <div>
+                  <div className="sun">
+                    <p>Sunrise :</p>
+                    <p>
+                      {forecastData &&
+                        forecastData.forecast.forecastday[3].astro.sunrise}
+                    </p>
+                  </div>
+                  <div className="sunset">
+                    <p>Sunset :</p>
+                    <p>
+                      {forecastData &&
+                        forecastData.forecast.forecastday[3].astro.sunset}
+                    </p>
+                  </div>
+                  <div className="moonrise">
+                    <p>Moonrise :</p>
+                    <p>
+                      {forecastData &&
+                        forecastData.forecast.forecastday[3].astro.moonrise}
+                    </p>
+                  </div>
+                </div>
+              </main>
+            </section>
+          ) : (
+            ""
+          )}
         </div>
       )}
     </div>
