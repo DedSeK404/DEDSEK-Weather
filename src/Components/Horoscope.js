@@ -21,18 +21,9 @@ export const Astro = () => {
 
     }
     fetchSign()
-    // const URL = `https://aztro.sameerkumar.website/?sign=${select}&day=today`;
-    // fetch(URL, {
-    //   method: "POST",
-    // })
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     setAstro(response);
-    //   });
+    
   }, [select]);
-  const handleClick = (e) => {
-    setSelect(e.target.value);
-  };
+ 
 
   console.log(astro);
 
@@ -46,7 +37,7 @@ export const Astro = () => {
     <div className="A_box">
       <p
         style={{
-          color: "white",
+          
           marginLeft: "25%",
           fontWeight: "700",
           fontSize: "80px",

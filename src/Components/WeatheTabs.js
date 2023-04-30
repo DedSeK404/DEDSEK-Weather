@@ -5,25 +5,16 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const WeatherTabs = ({ weatherData }) => {
-  const [precipitation, setPrecipitation] = useState(false);
-  const [wind, setWind] = useState(false);
-  const [moreInfo, setmoreInfo] = useState(false);
-
+  
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleClick = (event) => {
-    setPrecipitation(value);
-  };
-  const handleClickWind = (event) => {
-    setWind(value);
-  };
-  const handleClickInfo = (event) => {
-    setmoreInfo(value);
-  };
+ 
+ 
+  
   return (
     <div>
       <Box>
@@ -33,17 +24,17 @@ export const WeatherTabs = ({ weatherData }) => {
               <Tab
                 style={{ color: "white" }}
                 label="Precipitation"
-                onClick={handleClick}
+                
               />
               <Tab
                 style={{ color: "white" }}
                 label="Wind"
-                onClick={handleClickWind}
+               
               />
               <Tab
                 style={{ color: "white" }}
                 label="More Info"
-                onClick={handleClickInfo}
+                
               />
             </TabList>
             <div className="TabPanel" style={{ color: "#A1A1A1" }}>

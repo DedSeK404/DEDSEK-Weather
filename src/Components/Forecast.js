@@ -18,14 +18,14 @@ export const Forecast = ({ submit }) => {
     };
     getForecastData();
   }, [submit]);
-  console.log(forecastData);
+ 
   return (
-    <div className="forecastBox">
+    <div className="forecastBox" >
       {" "}
       {loading ? (
         <img style={{ marginLeft: "60%" }} src="/Data.png" alt="GETTING DATA" />
       ) : (
-        <div style={{ display: "flex", gap: "30px", marginLeft: "2%" }}>
+        <div style={{ display: "flex", gap: "5%",width:"100vw",height:"100vh",justifyContent:"space-around" }}>
           {/* 1st day Forecast  */}
           <section>
             <div className="ForecastDay">
@@ -195,7 +195,7 @@ export const Forecast = ({ submit }) => {
             </main>
           </section>
           {/* 4th day Forecast  */}
-          <section>
+          {forecastData.forecast.forecastday[3]?<section>
             <div className="ForecastDay">
               <p>{forecastData && forecastData.forecast.forecastday[3].date}</p>
               <p>
@@ -249,7 +249,7 @@ export const Forecast = ({ submit }) => {
                 </div>
               </div>
             </main>
-          </section>
+          </section>:""}
         </div>
       )}
     </div>
