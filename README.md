@@ -105,7 +105,7 @@ These are all the dependencies that I used in my project
 
 To see all the functionalities and use-case scenarios of my app please watch this short video explainer on my youtube channel:
 [youtube video](https://www.youtube.com/embed/g13h5viAZuo)
-<a href="https://www.youtube.com/embed/Rdza6pnJmQI">
+<a href="https://www.youtube.com/embed/g13h5viAZuo">
 <img src="https://i.ibb.co/9TPJfGJ/youtube.jpg" alt="Logo" width="1366" height="413">
 </a>
 
