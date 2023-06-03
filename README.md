@@ -103,11 +103,21 @@ These are all the dependencies that I used in my project
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-after cloning the rep and installing all the dependencies just start the app and you will get the access to the three main tabs 
-(current weather|forecast|horoscope)
-Note: as of 2023 the horoscope Api from aztro doesn't work anymore :/
+To see all the functionalities and use-case scenarios of my app please watch this short video explainer on my youtube channel:
+[youtube video](https://www.youtube.com/embed/g13h5viAZuo)
+<a href="https://www.youtube.com/embed/Rdza6pnJmQI">
+<img src="https://i.ibb.co/9TPJfGJ/youtube.jpg" alt="Logo" width="1366" height="413">
+</a>
 
-if you are interested to see how everything works, please refer to my [Linkedin profile](https://www.linkedin.com/in/marwen-bennaceur-584366270/)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br />
+Here is a screenshot from the app:
+<div align="center">
+  <a href="https://i.ibb.co/RCYCRjQ/screens.jpg">
+    <img src="https://i.ibb.co/RCYCRjQ/screens.jpg" alt="Logo" width="1366" height="1040">
+  </a>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
